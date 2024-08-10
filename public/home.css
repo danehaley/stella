@@ -1,5 +1,30 @@
 body {
   background-color: black;
+}
+
+.flex-c {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-r {
+  display: flex;
+  flex-direction: row;
+}
+
+.overflow-div {
+  overflow: auto;
+}
+img {
+  margin-bottom: 50px;
+  width: 50px;
+  height: auto;
+}
+p {
+  margin: auto;
+  color: white;
+}
+body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -9,31 +34,6 @@ body {
 
 .flex {
   display: flex;
-}
-
-.flex-c {
-  @extend .flex;
-  flex-direction: column;
-}
-
-.flex-r {
-  @extend .flex;
-  flex-direction: row;
-}
-
-.overflow-div {
-  overflow: auto;
-}
-
-img {
-  margin-bottom: 50px;
-  width: 50px;
-  height: auto;
-}
-
-p {
-  margin: auto;
-  color: white;
 }
 
 .full-width {
