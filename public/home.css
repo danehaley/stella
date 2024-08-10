@@ -12,26 +12,6 @@ body {
   flex-direction: row;
 }
 
-.overflow-div {
-  overflow: auto;
-}
-img {
-  margin-bottom: 25px;
-  width: 50px;
-  height: auto;
-}
-p {
-  margin: auto;
-  color: white;
-}
-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 98vh;
-  margin: 0;
-}
-
 .flex {
   display: flex;
 }
@@ -52,8 +32,4 @@ body {
 .mid-width {
   width: 300px;
   height: 480px;
-}
-
-footer {
-  font-size: 6px;
 }
