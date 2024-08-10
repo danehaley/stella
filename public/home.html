@@ -17,40 +17,30 @@
         margin: auto;
         color: white;
       }
-      .flex {
+      body {
         display: flex;
-      }
-      .flex-c {
         flex-direction: column;
-      }
-      .mid-width {
-        width: 50%;
-      }
-      .center {
-        justify-content: center;
-        align-items: center;
-      }
-      .full-width {
-        width: 100%;
-      }
-      .flex-r {
-        flex-direction: row-reverse;
+        justify-content: space-between;
+        min-height: 100vh;
+        margin: 0;
       }
     </style>
   </head>
   <body>
     <div class="flex">
-      <div class="flex-c mid-width center">
-        <div class="flex full-width">
+      <div
+        class="flex-c mid-width center"
+        style="margin-left: auto; margin-right: auto; height: 500px">
+        <div class="flex full-width" style="margin-left: auto; margin-right: auto">
           <p>to love you eterynl</p>
         </div>
         <div class="full-width flex-r center">
           <img src="/gif/stella.gif" />
         </div>
-        <div class="full-width flex-r center">
-          <img src="/gif/Jumping_bunny.gif" />
-        </div>
       </div>
+    </div>
+    <div class="full-width flex-r center">
+      <img src="/gif/Jumping_bunny.gif" />
     </div>
   </body>
 </html>
