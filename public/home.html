@@ -1,66 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-black">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>§ § §</title>
-    <link rel="stylesheet" href="home.css" />
-
-    <style>
-      html {
-        background-image: url("/gif/fondoest.gif");
-        font-family: sans-serif;
-      }
-      .overflow-div {
-        overflow: auto;
-      }
-      img {
-        margin-bottom: 15px;
-        width: 50px;
-        height: auto;
-      }
-
-      img.mid {
-        width: 175px;
-      }
-
-      p {
-        margin: auto;
-        color: white;
-      }
-      body {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        min-height: 98vh;
-        margin: 0;
-      }
-      footer {
-        margin-top: auto;
-        font-size: 9px;
-      }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="herlove.js"></script>
   </head>
-  <body>
+  <body
+    class="flex flex-col justify-between min-h-screen bg-center font-sans m-0 text-white bg-repeat-round bg-auto"
+    style="background-image: url('/gif/stargaze_wit_me.gif')">
     <!-- I cant live without her -->
-    <div class="flex">
-      <div
-        class="flex-c mid-width center"
-        style="margin-left: auto; margin-right: auto; height: 500px">
-        <div class="full-width flex-r center">
-          <!-- The love of my life -->
-          <img class="mid" src="/gif/jesusglobe.gif" />
-        </div>
-        <div class="flex full-width" style="margin-left: auto; margin-right: auto">
-          <p style="margin-left: auto; margin-right: auto">on sweet love eternyl</p>
-        </div>
+    <div class="flex justify-center items-center mx-auto h-[500px]">
+      <div class="text-center">
+        <!-- The love of my life -->
+        <img class="mr-4" id="jesus" src="/gif/djJesusNestlesHisLilLamb.gif" />
+        <p class="text-sm mt-4">on sweet love eterynl</p>
       </div>
     </div>
-    <footer class="full-width flex-c center">
-      <div class="full-width flex-r center">
-        <img src="/gif/Jumping_bunny.gif" />
+    <footer class="w-full flex justify-center items-center bg-transparent text-white pb-4">
+      <div class="flex flex-col text-center justify-center items-center">
+        <img class="w-2/6" src="/gif/you.gif" />
+        <p class="text-xs mt-2">Copyright SANE Industries © 2024</p>
       </div>
-      <p>Copyright SANE Industries © 2024</p>
     </footer>
   </body>
 </html>
