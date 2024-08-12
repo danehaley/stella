@@ -5,10 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
   if (jesus) {
     jesus.addEventListener("click", function () {
       // i love you btw idk if ive told u b4
-      oldSrc = jesus.src;
       jesus.src = "/gif/stella.gif";
       setTimeout(function () {
-        jesus.src = oldSrc;
+        jesus.src = "/gif/djJesusNestlesHisLilLamb.gif";
       }, 2250);
     });
   }
