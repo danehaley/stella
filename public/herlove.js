@@ -8,18 +8,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function setJesusClickListener() {
   const jesus = document.getElementById("jesus");
+  const bunny = document.getElementById("bunny");
+  jesus.style.display = "block";
+  bunny.style.display = "none";
 
   if (jesus) {
     jesus.addEventListener("click", function () {
       if (!running) {
         running = 1;
         // i love you btw idk if ive told u b4
-        jesus.src = "/gif/stella.gif";
+        toggle(jesus);
+        toggle(bunny);
         setTimeout(function () {
-          jesus.src = "/gif/djJesusNestlesHisLilLamb.gif";
+          toggle(jesus);
+          toggle(bunny);
           running = 0;
-        }, 2250);
+        }, 2000);
       }
     });
   }
+}
+
+function toggle(element) {
+  const states = { none: "block", block: "none", collapse: "block" };
+  element.style.display = states[element.style.display] || "block";
 }
