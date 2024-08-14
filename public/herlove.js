@@ -3,6 +3,7 @@ let running = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
   setJesusClickListener();
+  getPhase();
   // lay lady lay
 });
 
@@ -32,4 +33,12 @@ function setJesusClickListener() {
 function toggle(element) {
   const states = { none: "block", block: "none", collapse: "block" };
   element.style.display = states[element.style.display] || "block";
+}
+
+function getPhase() {
+  fetch("/services/phases/random")
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById("her-text").innerText = data;
+    });
 }
