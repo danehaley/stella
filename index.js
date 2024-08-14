@@ -4,9 +4,9 @@ const path = require("path");
 const app = express();
 const port = process.env.PORT || 80;
 const morgan = require("morgan");
-const { randomInt } = require("crypto");
 
 let phasesData = readDataFile("/data/phases.json");
+let counter = 0;
 
 app.get("/services/phases/random", (req, res) => {
   if (phasesData === undefined) {
@@ -16,7 +16,10 @@ app.get("/services/phases/random", (req, res) => {
     res.status(500).send("Error reading phases data");
     return;
   }
-  res.send(phasesData.phases[randomInt(0, phasesData.phases.length)]);
+  res.send(phasesData.phases[counter]);
+  counter++;
+  if (counter === phasesData.phases.length) counter = 0;
+  console.log(counter);
 });
 
 app.use(express.static(path.join(__dirname, "public")), morgan("tiny"));
