@@ -19,7 +19,6 @@ app.get("/services/phases/random", (req, res) => {
   res.send(phasesData.phases[counter]);
   counter++;
   if (counter === phasesData.phases.length) counter = 0;
-  console.log(counter);
 });
 
 app.use(express.static(path.join(__dirname, "public")), morgan("tiny"));
