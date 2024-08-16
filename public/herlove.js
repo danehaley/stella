@@ -40,9 +40,9 @@ function getPhase() {
     fetch("/services/phases/random")
       .then((response) => response.text())
       .then((data) => {
-        document.getElementById("her-text").innerText = data;
+        document.getElementById("her-text").innerText = "☩ " + data + " ☩";
       });
   } catch (err) {
-    document.getElementById("her-text").innerText = "i love you";
+    document.getElementById("her-text").innerText = "☩ i love you ☩";
   }
 }
