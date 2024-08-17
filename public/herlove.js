@@ -3,7 +3,8 @@ let running = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
   setJesusClickListener();
-  getPhase();
+  setPhaseNavigationListeners();
+  getPhase("init");
   // lay lady lay
 });
 
@@ -30,19 +31,44 @@ function setJesusClickListener() {
   }
 }
 
+function setPhaseNavigationListeners() {
+  const next = document.getElementById("next");
+  const prev = document.getElementById("prev");
+  if (next) {
+    next.addEventListener("click", function () {
+      getPhase("next");
+    });
+  }
+  if (prev) {
+    prev.addEventListener("click", function () {
+      getPhase("prev");
+    });
+  }
+}
+
 function toggle(element) {
   const states = { none: "block", block: "none", collapse: "block" };
   element.style.display = states[element.style.display] || "block";
 }
 
-function getPhase() {
+function getPhase(direction) {
   try {
-    fetch("/services/phases/random")
+    fetch("/services/phases/nav?direction=" + direction)
       .then((response) => response.text())
       .then((data) => {
-        document.getElementById("her-text").innerText = "☩ " + data + " ☩";
+        phase = JSON.parse(data);
+        document.getElementById("her-text").innerText = "☩ " + phase.string + " ☩";
       });
   } catch (err) {
     document.getElementById("her-text").innerText = "☩ i love you ☩";
   }
+}
+
+function getToday() {
+  fetch("/services/phases/today")
+    .then((response) => response.text())
+    .then((data) => {
+      phase = JSON.parse(data);
+      document.getElementById("her-text").innerText = "☩ " + phase.string + " ☩";
+    });
 }

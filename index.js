@@ -6,9 +6,9 @@ const port = process.env.PORT || 80;
 const morgan = require("morgan");
 
 let phasesData = readDataFile("/data/phases.json");
-let counter = 0;
+let globalPointer = 0; // Global pointer for all clients
 
-app.get("/services/phases/random", (req, res) => {
+app.get("/services/phases/nav", (req, res) => {
   if (phasesData === undefined) {
     phasesData = readDataFile("/data/phases.json");
   }
@@ -16,10 +16,29 @@ app.get("/services/phases/random", (req, res) => {
     res.status(500).send("Error reading phases data");
     return;
   }
-  res.send(phasesData.phases[counter]);
-  counter++;
-  if (counter === phasesData.phases.length) counter = 0;
+
+  // Determine direction based on query parameter
+  const direction = req.query.direction;
+  if (direction === "next") {
+    globalPointer++;
+  } else if (direction === "prev") {
+    globalPointer--;
+  } else if (direction === "init") {
+    globalPointer = 0;
+  }
+
+  // Loop around if necessary
+  if (globalPointer >= phasesData.phases.length) {
+    globalPointer = 0; // Loop back to start
+  } else if (globalPointer < 0) {
+    globalPointer = phasesData.phases.length - 1; // Loop back to end
+  }
+
+  // Send the phase at the current pointer position
+  res.send(phasesData.phases[globalPointer]);
 });
+
+app.get("/services/phases/today", (req, res) => {});
 
 app.use(express.static(path.join(__dirname, "public")), morgan("tiny"));
 
