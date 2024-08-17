@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   setJesusClickListener();
   setPhaseNavigationListeners();
   getPhase("init");
+  setupKeyboardNavigation();
   // lay lady lay
 });
 
@@ -73,6 +74,22 @@ function getToday() {
     .then((response) => response.text())
     .then((data) => {
       phase = JSON.parse(data);
-      document.getElementById("her-text").innerText = "☩ " + phase.string + " ☩";
+      document.getElementById("her-text").innerText = "☩ " + phase.string + " ��";
     });
+}
+
+function setupKeyboardNavigation() {
+  window.addEventListener("keydown", function (event) {
+    switch (event.key) {
+      case "ArrowRight":
+        getPhase("next");
+        break;
+      case "ArrowLeft":
+        getPhase("prev");
+        break;
+      default:
+        // Optionally, handle other keys or ignore them
+        break;
+    }
+  });
 }
