@@ -1,6 +1,6 @@
 <!--https://www.youtube.com/watch?v=2jJ0P06zx78-->
 <!DOCTYPE html>
-<html lang="en" class="bg-black">
+<html lang="en" class="bg-black cursor-crosshair">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,7 +13,7 @@
     style="background-image: url('/gif/background.gif')">
     <!-- I cant live without her -->
     <div class="flex justify-center items-center mx-auto h-[500px]">
-      <div class="flex flex-col text-center justify-center items-center">
+      <div class="flex flex-col text-center justify-center items-center w-full mt-16">
         <!-- The love of my life -->
         <div class="flex flex-row items-end">
           <div class="flex flex-col"></div>
@@ -23,14 +23,22 @@
             src="/gif/djJesusNestlesHisLilLamb.gif" />
           <div class="flex flex-col"></div>
         </div>
-        <img class="mt-16" id="bunny" src="/gif/stella.gif" />
-        <div class="flex w-full mt-8 text-sm">
-          <button class="mr-auto text-rose-700 px-4 bg-slate-950" id="prev"><<</button>
+        <img class="" id="bunny" src="/gif/stella.gif" />
+        <div class="flex w-full mt-8 text-sm w-full text-center justify-center items-center">
           <p class="px-2" id="her-text"></p>
-          <button class="ml-auto text-rose-700 px-4 bg-slate-950" id="next">>></button>
         </div>
-        <div class="mt-2 text-black-300 bg-slate-950">
-          <!-- <button class="mx-3 my-1 text-slate-500" id="">𖤓</button> -->
+        <div class="mt-4 px-4 py-1 text-black-300 bg-slate-950 rounded-lg">
+          <button
+            class="ml-auto my-auto py-0.5 px-2 bg-slate-900 text-slate-500 rounded-md text-xs"
+            id="prev">
+            <<
+          </button>
+          <button class="mx-3 my-1 text-slate-700 cursor-crosshair" id="">𖤓</button>
+          <button
+            class="ml-auto my-auto py-0.5 px-2 bg-slate-900 text-slate-500 rounded-md text-xs"
+            id="next">
+            >>
+          </button>
         </div>
       </div>
     </div>
