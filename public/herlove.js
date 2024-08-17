@@ -36,12 +36,16 @@ function setPhaseNavigationListeners() {
   const prev = document.getElementById("prev");
   if (next) {
     next.addEventListener("click", function () {
+      next.classList.add("border-slate-800");
       getPhase("next");
+      next.classList.add("border-slate-950");
     });
   }
   if (prev) {
     prev.addEventListener("click", function () {
+      next.classList.add("border-slate-800");
       getPhase("prev");
+      next.classList.add("border-slate-950");
     });
   }
 }
