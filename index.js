@@ -40,6 +40,18 @@ app.get("/services/phases/nav", (req, res) => {
 
 app.get("/services/phases/today", (req, res) => {});
 
+app.get("/musik", (req, res) => {
+  const id = req.query.id;
+  const html = path.join(__dirname, "public", "musik." + id + ".html");
+  res.sendFile(html, function (err, fd) {
+    if (err !== undefined && err.code === "ENOENT") {
+      res.sendFile(path.join(__dirname, "public", "home.html"));
+      console.log("NOT_FOUND: query id " + req.query.id + " had no musik HTML.");
+      return;
+    }
+  });
+});
+
 app.use(express.static(path.join(__dirname, "public")), morgan("tiny"));
 
 app.get("/", (req, res) => {
