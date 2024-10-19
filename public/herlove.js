@@ -1,5 +1,6 @@
 // iz blis
 let running = 0;
+let phase;
 
 document.addEventListener("DOMContentLoaded", function () {
   setJesusClickListener();
@@ -63,19 +64,33 @@ function getPhase(direction) {
       .then((data) => {
         phase = JSON.parse(data);
         document.getElementById("her-text").innerText = "☩ " + phase.string + " ☩";
+      })
+      .catch((error) => {
+        console.error("Error fetching phase:", error);
+        document.getElementById("her-text").innerText = "☩ i love you ☩";
       });
   } catch (err) {
+    console.error("Error processing phase data:", err);
     document.getElementById("her-text").innerText = "☩ i love you ☩";
   }
 }
 
 function getToday() {
-  fetch("/services/phases/today")
-    .then((response) => response.text())
-    .then((data) => {
-      phase = JSON.parse(data);
-      document.getElementById("her-text").innerText = "☩ " + phase.string + " ��";
-    });
+  try {
+    fetch("/services/phases/today")
+      .then((response) => response.text())
+      .then((data) => {
+        phase = JSON.parse(data);
+        document.getElementById("her-text").innerText = "☩ " + phase.string + " ��";
+      })
+      .catch((error) => {
+        console.error("Error fetching today's phase:", error);
+        document.getElementById("her-text").innerText = "☩ i love you ☩";
+      });
+  } catch (err) {
+    console.error("Error processing today's phase data:", err);
+    document.getElementById("her-text").innerText = "☩ i love you ☩";
+  }
 }
 
 function setupKeyboardNavigation() {
