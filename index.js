@@ -16,6 +16,22 @@ const limiter = limit({
   max: 100, // Limit each IP to 100 requests per windowMs
 });
 
+app.use((req, res, next) => {
+  res.setHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
+  res.setHeader(
+    "Content-Security-Policy",
+    "default-src 'self'; script-src 'self' https://cdn.tailwindcss.com; style-src 'self' https://cdn.tailwindcss.com;"
+  );
+  res.setHeader("X-Frame-Options", "SAMEORIGIN");
+  res.setHeader("X-Content-Type-Options", "nosniff");
+  res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
+  res.setHeader("Permissions-Policy", "interest-cohort=()");
+  res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
+  res.setHeader("Cross-Origin-Opener-Policy", "same-origin-strict");
+  res.setHeader("Cross-Origin-Resource-Policy", "same-site-mixed-content");
+  next();
+});
+
 app.get("/", rateLimitCheck, (req, res) => {
   res.sendFile(path.join(__dirname, "public", "home.html"));
 });
@@ -71,47 +87,6 @@ app.listen(port, () => {
 
 app.set("trust proxy", 1);
 
-app.use(express.static(path.join(__dirname, "public")), morgan("tiny"));
-
-app.use(helmet());
-
-app.use(limiter);
-
-app.use((req, res, next) => {
-  res.setHeader("X-Frame-Options", "SAMEORIGIN");
-  next();
-});
-
-app.use((req, res, next) => {
-  res.setHeader("X-Content-Type-Options", "nosniff");
-  next();
-});
-
-app.use((req, res, next) => {
-  res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
-  next();
-});
-
-app.use((req, res, next) => {
-  res.setHeader("Permissions-Policy", "interest-cohort=()");
-  next();
-});
-
-app.use((req, res, next) => {
-  res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
-  next();
-});
-
-app.use((req, res, next) => {
-  res.setHeader("Cross-Origin-Opener-Policy", "same-origin-strict");
-  next();
-});
-
-app.use((req, res, next) => {
-  res.setHeader("Cross-Origin-Resource-Policy", "same-site-mixed-content");
-  next();
-});
-
 app.use((req, res, next) => {
   res.setHeader(
     "Content-Security-Policy",
@@ -152,11 +127,3 @@ function getToday() {
       document.getElementById("her-text").innerText = "☩ i love you ☩";
     });
 }
-
-app.use((req, res, next) => {
-  res.setHeader(
-    "Content-Security-Policy",
-    "default-src 'self'; script-src 'self' https://cdn.tailwindcss.com; style-src 'self' https://cdn.tailwindcss.com;"
-  );
-  next();
-});
