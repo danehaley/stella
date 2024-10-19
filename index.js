@@ -16,19 +16,30 @@ const limiter = limit({
   max: 100, // Limit each IP to 100 requests per windowMs
 });
 
+// For HTML responses
+app.use((req, res, next) => {
+  if (req.accepts("html")) {
+    res.setHeader(
+      "Content-Security-Policy",
+      "default-src 'self'; script-src 'self' https://cdn.tailwindcss.com; style-src 'self' https://cdn.tailwindcss.com 'unsafe-inline'"
+    );
+    res.setHeader("X-Frame-Options", "SAMEORIGIN");
+    res.setHeader("X-Content-Type-Options", "nosniff");
+    res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
+    res.setHeader("Permissions-Policy", "interest-cohort=()");
+    res.setHeader("Cross-Origin-Opener-Policy", "same-origin-strict");
+    res.setHeader("Cross-Origin-Resource-Policy", "same-site-mixed-content");
+  }
+  next();
+});
+
+// For static asset responses
+app.use(express.static(path.join(__dirname, "public")));
+
+// For other responses
 app.use((req, res, next) => {
   res.setHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
-  res.setHeader(
-    "Content-Security-Policy",
-    "default-src 'self'; script-src 'self' https://cdn.tailwindcss.com; style-src 'self' https://cdn.tailwindcss.com;"
-  );
-  res.setHeader("X-Frame-Options", "SAMEORIGIN");
-  res.setHeader("X-Content-Type-Options", "nosniff");
-  res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
-  res.setHeader("Permissions-Policy", "interest-cohort=()");
-  res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
-  res.setHeader("Cross-Origin-Opener-Policy", "same-origin-strict");
-  res.setHeader("Cross-Origin-Resource-Policy", "same-site-mixed-content");
+  res.setHeader("Cross-Origin-Embedder-Policy", "unsafe-none");
   next();
 });
 
