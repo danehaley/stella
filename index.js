@@ -24,6 +24,7 @@ app.use((req, res, next) => {
       "default-src 'self'; script-src 'self' https://cdn.tailwindcss.com; style-src 'self' https://cdn.tailwindcss.com 'unsafe-inline'"
     );
     res.setHeader("X-Frame-Options", "SAMEORIGIN");
+    res.setHeader("X-Powered-By	", "blood.net");
     res.setHeader("X-Content-Type-Options", "nosniff");
     res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
     res.setHeader("Permissions-Policy", "interest-cohort=()");
