@@ -2,26 +2,40 @@ const express = require("express");
 const fs = require("fs");
 const path = require("path");
 const app = express();
-const helmet = require("helmet");
 const port = process.env.PORT || 80;
 const morgan = require("morgan");
 const limit = require("express-rate-limit");
-const csurf = require("csurf");
+const helmet = require("helmet");
 
 let phasesData = readDataFile("/data/phases.json");
 let globalPointer = 0; // Global pointer for all clients
 
-app.use(
-  limit({
-    windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 100, // Limit each IP to 100 requests per windowMs
-  })
-);
-app.use(helmet());
-app.use(csurf());
+// Set up rate limiting
+const limiter = limit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limit each IP to 100 requests per windowMs
+});
 
-app.get("/services/phases/nav", (req, res) => {
-  rateLimitCheck();
+// Alphabetically ordered app methods
+
+app.get("/", rateLimitCheck, (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "home.html"));
+});
+
+app.get("/musik", rateLimitCheck, (req, res) => {
+  const id = req.query.id;
+  const sanitizedId = path.basename(id);
+  const html = path.join(__dirname, "public", "musik." + sanitizedId + ".html");
+  res.sendFile(html, function (err, fd) {
+    if (err !== undefined && err.code === "ENOENT") {
+      res.sendFile(path.join(__dirname, "public", "home.html"));
+      console.log("NOT_FOUND: query id " + req.query.id + " had no musik HTML.");
+      return;
+    }
+  });
+});
+
+app.get("/services/phases/nav", rateLimitCheck, (req, res) => {
   if (phasesData === undefined) {
     phasesData = readDataFile("/data/phases.json");
   }
@@ -51,34 +65,25 @@ app.get("/services/phases/nav", (req, res) => {
   res.send(phasesData.phases[globalPointer]);
 });
 
-app.get("/services/phases/today", (req, res) => {
-  rateLimitCheck();
-});
-
-app.get("/musik", (req, res) => {
-  rateLimitCheck();
-  const id = req.query.id;
-  const sanitizedId = path.basename(id);
-  const html = path.join(__dirname, "public", "musik." + sanitizedId + ".html");
-  res.sendFile(html, function (err, fd) {
-    if (err !== undefined && err.code === "ENOENT") {
-      res.sendFile(path.join(__dirname, "public", "home.html"));
-      console.log("NOT_FOUND: query id " + req.query.id + " had no musik HTML.");
-      return;
-    }
-  });
-});
-
-app.use(express.static(path.join(__dirname, "public")), morgan("tiny"));
-
-app.get("/", (req, res) => {
-  rateLimitCheck();
-  res.sendFile(path.join(__dirname, "public", "home.html"));
-});
+app.get("/services/phases/today", rateLimitCheck, (req, res) => {});
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
+
+app.use((req, res, next) => {
+  res.setHeader(
+    "Content-Security-Policy",
+    "default-src 'self'; script-src 'self' https://cdn.tailwindcss.com; style-src 'self' https://cdn.tailwindcss.com;"
+  );
+  next();
+});
+
+app.use(express.static(path.join(__dirname, "public")), morgan("tiny"));
+
+app.use(helmet());
+
+app.use(limiter);
 
 function readDataFile(relativeJsonPath) {
   let data = fs.readFileSync(path.join(__dirname, relativeJsonPath), "utf8");
@@ -90,11 +95,25 @@ function readDataFile(relativeJsonPath) {
   }
 }
 
-function rateLimitCheck() {
-  if (rateLimited) {
+function rateLimitCheck(req, res, next) {
+  if (limiter.limited) {
     res
       .status(429)
       .json({ error: "Too Many Requests", message: "Please wait before making another request." });
-    return;
+  } else {
+    next(); // Continue to the next middleware or route handler
   }
+}
+
+function getToday() {
+  fetch("/services/phases/today")
+    .then((response) => response.text())
+    .then((data) => {
+      phase = JSON.parse(data);
+      document.getElementById("her-text").innerText = "☩ " + phase.string + " ��";
+    })
+    .catch((error) => {
+      console.error("Error fetching today's phase:", error);
+      document.getElementById("her-text").innerText = "☩ i love you ☩";
+    });
 }
