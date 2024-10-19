@@ -16,8 +16,6 @@ const limiter = limit({
   max: 100, // Limit each IP to 100 requests per windowMs
 });
 
-// Alphabetically ordered app methods
-
 app.get("/", rateLimitCheck, (req, res) => {
   res.sendFile(path.join(__dirname, "public", "home.html"));
 });
@@ -71,6 +69,49 @@ app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
 
+app.set("trust proxy", 1);
+
+app.use(express.static(path.join(__dirname, "public")), morgan("tiny"));
+
+app.use(helmet());
+
+app.use(limiter);
+
+app.use((req, res, next) => {
+  res.setHeader("X-Frame-Options", "SAMEORIGIN");
+  next();
+});
+
+app.use((req, res, next) => {
+  res.setHeader("X-Content-Type-Options", "nosniff");
+  next();
+});
+
+app.use((req, res, next) => {
+  res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
+  next();
+});
+
+app.use((req, res, next) => {
+  res.setHeader("Permissions-Policy", "interest-cohort=()");
+  next();
+});
+
+app.use((req, res, next) => {
+  res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
+  next();
+});
+
+app.use((req, res, next) => {
+  res.setHeader("Cross-Origin-Opener-Policy", "same-origin-strict");
+  next();
+});
+
+app.use((req, res, next) => {
+  res.setHeader("Cross-Origin-Resource-Policy", "same-site-mixed-content");
+  next();
+});
+
 app.use((req, res, next) => {
   res.setHeader(
     "Content-Security-Policy",
@@ -78,12 +119,6 @@ app.use((req, res, next) => {
   );
   next();
 });
-
-app.use(express.static(path.join(__dirname, "public")), morgan("tiny"));
-
-app.use(helmet());
-
-app.use(limiter);
 
 function readDataFile(relativeJsonPath) {
   let data = fs.readFileSync(path.join(__dirname, relativeJsonPath), "utf8");
@@ -117,3 +152,11 @@ function getToday() {
       document.getElementById("her-text").innerText = "☩ i love you ☩";
     });
 }
+
+app.use((req, res, next) => {
+  res.setHeader(
+    "Content-Security-Policy",
+    "default-src 'self'; script-src 'self' https://cdn.tailwindcss.com; style-src 'self' https://cdn.tailwindcss.com;"
+  );
+  next();
+});
