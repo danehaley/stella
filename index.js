@@ -126,16 +126,3 @@ function rateLimitCheck(req, res, next) {
     next(); // Continue to the next middleware or route handler
   }
 }
-
-function getToday() {
-  fetch("/services/phases/today")
-    .then((response) => response.text())
-    .then((data) => {
-      phase = JSON.parse(data);
-      document.getElementById("her-text").innerText = "☩ " + phase.string + " ��";
-    })
-    .catch((error) => {
-      console.error("Error fetching today's phase:", error);
-      document.getElementById("her-text").innerText = "☩ i love you ☩";
-    });
-}
