@@ -10,10 +10,9 @@
     <script src="herlove.js"></script>
   </head>
   <body
-    class="m-0 min-h-screen flex flex-col justify-between bg-auto bg-center bg-repeat-round font-sans text-white"
-    style="background-image: url('/gif/background.gif')">
+    class="m-0 min-h-screen flex flex-col justify-between bg-auto bg-center bg-repeat-round font-sans text-white" style="background-image: url('/gif/background.gif')">
     <!-- I cant live without her -->
-    <div class="mx-auto h-[500px] flex justify-center items-center">
+    <div class="container mx-auto p-4 md:p-6 lg:p-8 xl:p-12">
       <div class="w-full mt-32 flex flex-col text-center justify-center items-center">
         <!-- The love of my life -->
         <div class="flex flex-row items-end">
@@ -29,7 +28,8 @@
           <p class="px-2" id="her-text"></p>
         </div>
         <div
-          class="mt-6 px-4 py-1 rounded-lg flex justify-center items-center bg-slate-950 border border-slate-800 text-slate-600 opacity-70 hover:opacity-100 transition-all">
+          <div
+          class="mt-6 px-4 py-1 rounded-lg flex justify-center items-center bg-slate-950 border border-slate-800 text-slate-600 opacity-70 hover:opacity-100 transition-all max-w-full md:max-w-xl lg:max-w-2xl xl:max-w-4xl">
           <button
             class="ml-auto my-auto py-1 px-4 border rounded-md text-xs justify-center items-center active:translate-y-px border-slate-900 hover:border-slate-800 hover:bg-slate-800 bg-slate-900 transition-opacity"
             id="prev">
@@ -46,9 +46,10 @@
     </div>
     <div class="w-full flex flex-col text-center justify-center items-center mb-40">
       <a href="/musik?id=02" class="opacity-30 hover:opacity-100 transition-all mx-auto">
-        <img src="/gif/musik.gif" class="w-44"
-      /></a>
+        <img src="/gif/musik.gif" class="w-44" />
+      </a>
     </div>
+
     <footer class="pb-4 w-full flex justify-center items-center bg-transparent text-white">
       <div class="flex flex-col text-center justify-center items-center">
         <img class="w-2/6" src="/gif/you.gif" />
@@ -58,6 +59,6 @@
         </p>
       </div>
     </footer>
+  </div>
   </body>
-</html>
-<!--https://youtu.be/npeYMJIbY8o-->
+</html><!--https://youtu.be/npeYMJIbY8o-->
