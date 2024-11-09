@@ -36,10 +36,18 @@ function setJesusClickListener() {
 function setPhaseNavigationListeners() {
   const next = document.getElementById("next");
   const prev = document.getElementById("prev");
+  const cutUp = document.getElementById("cut-up");
   if (next) {
     next.addEventListener("click", function () {
       next.classList.add("border-slate-800");
       getPhase("next");
+      next.classList.add("border-slate-950");
+    });
+  }
+  if (cutUp) {
+    cutUp.addEventListener("click", function () {
+      next.classList.add("border-slate-800");
+      getPhase("cutup");
       next.classList.add("border-slate-950");
     });
   }

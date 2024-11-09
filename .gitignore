@@ -1,10 +1,26 @@
+# build output
+dist/
+# generated types
+.astro/
+
+# dependencies
 node_modules/
-node_modules/cookie-parser/HISTORY.md
-node_modules/cookie-parser/package.json
-node_modules/cookie-parser/node_modules/cookie/HISTORY.md
-node_modules/cookie-parser/node_modules/cookie/index.js
-node_modules/cookie-parser/node_modules/cookie/LICENSE
-node_modules/cookie-parser/node_modules/cookie/package.json
-node_modules/cookie-parser/node_modules/cookie/README.md
-public/.DS_Store
-public/gif/.DS_Store
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
+.idea/
+.vscode/extensions.json
+.vscode/launch.json
