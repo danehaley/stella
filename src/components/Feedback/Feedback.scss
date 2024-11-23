@@ -1,0 +1,19 @@
+.feedback {
+  &-wrapper {
+    margin-left: 2.5rem;
+    margin-top: auto;
+    button {
+      border: dotted white 1px;
+      border-radius: 1rem;
+      padding: 0.1rem 0.5rem;
+      width: auto;
+      overflow: visible;
+      background: rgba(245, 245, 245, 0.445);
+      color: purple;
+      transform: scaleY(0.75) scaleX(1.5);
+      line-height: normal;
+      -webkit-font-smoothing: inherit;
+      -moz-osx-font-smoothing: inherit;
+    }
+  }
+}

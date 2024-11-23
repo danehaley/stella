@@ -1,0 +1,35 @@
+.navbar {
+  &-container {
+    width: fit-content;
+    margin-top: 2rem;
+    display: block;
+  }
+  &-wrapper {
+    list-style: none;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+    * {
+      text-decoration: none;
+    }
+    .navbar-item {
+      margin-top: 1rem;
+      display: flex;
+    }
+    .navbar-item-link {
+      color: whitesmoke !important;
+      text-decoration: none !important;
+      margin-top: auto;
+      font-size: 1rem;
+      transform-origin: center;
+      display: inline-block;
+      letter-spacing: 0.125rem;
+      transform: scaleY(1.25);
+      &:hover,
+      :focus {
+        color: purple;
+      }
+    }
+  }
+}

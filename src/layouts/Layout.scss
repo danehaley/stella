@@ -1,0 +1,30 @@
+.layout {
+  min-height: 100vh;
+  display: flex;
+}
+
+.layout-wrapper {
+  margin: auto;
+  padding-bottom: 4rem;
+}
+
+footer {
+  color: whitesmoke;
+  font-family: sans-serif;
+  display: flex;
+  margin-bottom: 1.5rem;
+  .footer-text {
+    font-size: 0.5rem;
+    margin-left: auto;
+    margin-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    * {
+      margin-left: auto;
+    }
+    img {
+      width: 33%;
+    }
+  }
+}
