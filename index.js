@@ -48,19 +48,6 @@ app.get("/", rateLimitCheck, (req, res) => {
   res.sendFile(path.join(__dirname, "public", "home.html"));
 });
 
-app.get("/musik", rateLimitCheck, (req, res) => {
-  const id = req.query.id;
-  const sanitizedId = path.basename(id);
-  const html = path.join(__dirname, "public", "musik." + sanitizedId + ".html");
-  res.sendFile(html, function (err, fd) {
-    if (err !== undefined && err.code === "ENOENT") {
-      res.sendFile(path.join(__dirname, "public", "home.html"));
-      console.log("NOT_FOUND: query id " + req.query.id + " had no musik HTML.");
-      return;
-    }
-  });
-});
-
 app.get("/services/phases/nav", rateLimitCheck, (req, res) => {
   if (phasesData === undefined) {
     phasesData = readDataFile("/data/phases.json");
