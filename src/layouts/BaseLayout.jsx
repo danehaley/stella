@@ -18,7 +18,7 @@ function BaseLayout(props) {
           <img className="footer-bun" src="/gif/you.gif" />
           <p className="footer-version">
             Version:{" "}
-            <a className="footer-version-hyperlink" href={versionUrl}>
+            <a className="footer-version-hyperlink" href={versionUrl} target="_blank">
               {versionName}
             </a>
           </p>
