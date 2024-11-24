@@ -25,13 +25,13 @@
   &-select {
     margin-top: auto;
     border: solid rgba(245, 245, 245, 0.65) 1px;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     padding: 0.1rem 2rem;
     width: auto;
     overflow: visible;
     background: rgba(245, 245, 245, 0.65);
     color: purple;
-    transform: scaleY(0.75) scaleX(1.5);
+    transform: scaleY(0.75) scaleX(1.25);
     line-height: normal;
     -webkit-font-smoothing: inherit;
     -moz-osx-font-smoothing: inherit;
@@ -40,5 +40,5 @@
 
 .album-wrapper {
   width: 100%;
-  margin-top: 4rem;
+  margin-top: 5rem;
 }
