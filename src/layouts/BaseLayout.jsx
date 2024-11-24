@@ -2,10 +2,10 @@ import { Outlet } from "react-router";
 import Navbar from "../components/Navbar/Navbar";
 import "./Layout.scss";
 import Feedback from "../components/Feedback/Feedback";
-import gitInfo from "../gitInfo.json";
+import footer from "./footer.json";
 
 function BaseLayout(props) {
-  const { lastUpdated, versionInfo } = gitInfo;
+  const { versionName, versionUrl, lastUpdated } = footer;
   return (
     <div className="layout" style={{ flexDirection: props.layoutFlexDirection }}>
       <div className="layout-wrapper">
@@ -15,12 +15,12 @@ function BaseLayout(props) {
       <footer>
         <Feedback />
         <div className="footer-text">
-          <img src="/gif/you.gif" />
-          <p>
-            version: <a href={versionInfo.url}>{versionInfo.name}</a>
+          <img className="footer-bun" src="/gif/you.gif" />
+          <p className="footer-version">
+            version: <a href={versionUrl}>{versionName}</a>
           </p>
-          <p>last updated {lastUpdated}</p>
-          <p>
+          <p className="footer-timestamp">last updated: {lastUpdated}</p>
+          <p className="footer-copyright">
             Powered by Bloodnet <br />
             Copyright Sane Workshopz © 2024 - 4L
           </p>
