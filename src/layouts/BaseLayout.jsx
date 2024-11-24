@@ -22,9 +22,8 @@ function BaseLayout(props) {
               {versionName}
             </a>
           </p>
-          <p className="footer-timestamp">Last updated: {lastUpdated}</p>
           <p className="footer-copyright">
-            Powered by Bloodnet <br />
+            Last updated: {lastUpdated} <br />
             Copyright Sane Workshopz © 2024 - 4L
           </p>
         </div>
