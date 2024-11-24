@@ -52,7 +52,7 @@ function Textz() {
             </>
           ))}
           <div className="text-wrapper">
-            <p className="text" style={{ fontSize: adjustFontSize(phase.string, 0.4, 1, 0.0045) }}>
+            <p className="text" style={{ fontSize: adjustFontSize(phase.string, 0.4, 1, 0.0065) }}>
               {phase.string}
             </p>
             <p className="text-timestamp">Posted on {phase.date}</p>
