@@ -1,3 +1,4 @@
+import { useState } from "react";
 import adjustFontSize from "../../../../util/dynamicFontSize";
 import "./Album.scss";
 
@@ -6,7 +7,12 @@ function Album(props) {
 
   return (
     <div className="album">
-      <img className="album-cover" src={"covers/cover" + album.id + ".png"} />
+      <img
+        className="album-cover"
+        style={props.loaded ? {} : { opacity: 0 }}
+        src={"covers/cover" + album.id + ".png"}
+        onLoad={() => props.setLoaded(true)}
+      />
       <p className="album-title" style={{ fontSize: adjustFontSize(album.title, 0.4, 1, 0.002) }}>
         {album.title}
       </p>

@@ -7,6 +7,7 @@ import { useEffect } from "react";
 function MusikNavigator(props) {
   const [albumId, setAlbumId] = useState(0);
   const [album, setAlbum] = useState(data[albumId]);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     setAlbum(data[albumId]);
@@ -29,18 +30,24 @@ function MusikNavigator(props) {
   return (
     <div className="musiknavigator-container">
       <div className="album-wrapper">
-        <Album album={album} />
+        <Album album={album} loaded={loaded} setLoaded={setLoaded} />
       </div>
       <div className="musiknavigator-select-container">
         <button
           className="musiknavigator-select musiknavigator-select--left"
-          onClick={() => navigate("left")}>
+          onClick={() => {
+            navigate("left");
+            setLoaded(false);
+          }}>
           ↫
         </button>
         <p className="text-emblem">𖤓</p>
         <button
           className="musiknavigator-select musiknavigator-select--right"
-          onClick={() => navigate("right")}>
+          onClick={() => {
+            navigate("right");
+            setLoaded(false);
+          }}>
           ↬
         </button>
       </div>
