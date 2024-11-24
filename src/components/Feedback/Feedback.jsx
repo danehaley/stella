@@ -6,10 +6,7 @@ function Feedback() {
   const doshit = () => {
     setText("disabled");
     setTimeout(function () {
-      setText("for now..");
-      setTimeout(function () {
-        setText("feedback");
-      }, 500);
+      setText("feedback");
     }, 1000);
   };
   return (

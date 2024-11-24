@@ -15,7 +15,7 @@ function BaseLayout(props) {
         <div className="footer-text">
           <img src="/gif/you.gif" />
           <p>
-            Powered by BabyBlood.net <br />
+            Powered by Bloodnet <br />
             Copyright Sane Workshopz © 2024 - 4L
           </p>
         </div>
