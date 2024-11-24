@@ -7,7 +7,7 @@ function Album(props) {
   return (
     <div className="album">
       <img className="album-cover" src={"covers/cover" + album.id + ".png"} />
-      <p className="album-title" style={{ fontSize: adjustFontSize(album) }}>
+      <p className="album-title" style={{ fontSize: adjustFontSize(album.title, 0.4, 1, 0.002) }}>
         {album.title}
       </p>
       {album.subtitle !== undefined && (
