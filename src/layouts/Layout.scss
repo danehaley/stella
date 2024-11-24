@@ -61,18 +61,25 @@ footer {
   font-family: sans-serif;
   display: flex;
   margin-bottom: 1.5rem;
-  .footer-text {
-    font-size: 0.5rem;
-    margin-left: auto;
-    margin-right: 1rem;
-    display: flex;
-    flex-direction: column;
-    text-align: right;
-    * {
-      margin-left: auto;
+
+  .footer {
+    font-size: 1rem;
+    &-version-hyperlink {
+      color: #ff00ff;
     }
-    img {
-      width: 33%;
+    &-text {
+      font-size: 0.6rem;
+      margin-left: auto;
+      margin-right: 1rem;
+      display: flex;
+      flex-direction: column;
+      text-align: right;
+      * {
+        margin-left: auto;
+      }
+      img {
+        width: 33%;
+      }
     }
   }
 }

@@ -17,9 +17,12 @@ function BaseLayout(props) {
         <div className="footer-text">
           <img className="footer-bun" src="/gif/you.gif" />
           <p className="footer-version">
-            version: <a href={versionUrl}>{versionName}</a>
+            Version:{" "}
+            <a className="footer-version-hyperlink" href={versionUrl}>
+              {versionName}
+            </a>
           </p>
-          <p className="footer-timestamp">last updated: {lastUpdated}</p>
+          <p className="footer-timestamp">Last updated: {lastUpdated}</p>
           <p className="footer-copyright">
             Powered by Bloodnet <br />
             Copyright Sane Workshopz © 2024 - 4L
