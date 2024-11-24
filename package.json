@@ -6,7 +6,7 @@
   "scripts": {
     "start": "serve -s dist",
     "dev": "vite",
-    "build": "vite build",
+    "build": "git show -s --format='{\"lastUpdated\": \"%ci\", \"versionInfo\": %B}' > src/gitInfo.json && vite build",
     "lint": "eslint .",
     "test": "vite build --mode production",
     "preview": "vite preview"
