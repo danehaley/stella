@@ -3,12 +3,12 @@
     margin-left: 2.5rem;
     margin-top: auto;
     button {
-      border: dotted white 1px;
-      border-radius: 1rem;
+      border: solid rgba(245, 245, 245, 0.8) 1px;
+      border-radius: 0.5rem;
       padding: 0.1rem 0.5rem;
       width: auto;
       overflow: visible;
-      background: rgba(245, 245, 245, 0.445);
+      background: rgba(245, 245, 245, 0.8);
       color: purple;
       transform: scaleY(0.75) scaleX(1.5);
       line-height: normal;

@@ -2,10 +2,20 @@
   &-container {
     display: flex;
     flex-direction: column;
+    height: 100%;
   }
   &-img {
     box-sizing: border-box;
     padding-right: 1.5rem;
     width: 100%;
+  }
+
+  &-jesus {
+    &-heading {
+      transform: scaleX(1.5) scaleY(0.75);
+      transform-origin: left;
+    }
+    margin-top: 1rem;
+    color: whitesmoke;
   }
 }

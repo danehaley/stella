@@ -1,0 +1,55 @@
+[
+  {
+    "id": 0,
+    "title": "“PORCELAIN SKIN” MIX",
+    "artist": "DJ SWAT o5",
+    "date": "18/10/2024",
+    "length": "10min12sec",
+    "tracklist": [
+      { "trackNo": 1, "title": "MR NOBODY - LET'S RIDE", "mixTitle": "" },
+      { "trackNo": 2, "title": "VELVET UNDERGROUND - I'LL BE YOUR MIRROR", "mixTitle": "" },
+      { "trackNo": 3, "title": "CHRIS & COSEY - OCTOBER (LOVE SONG)", "mixTitle": "" },
+      { "trackNo": 4, "title": "YO PUSSY", "mixTitle": "" }
+    ],
+    "downloads": [
+      {
+        "title": ".mp3 (vbr)",
+        "url": "https://drive.usercontent.google.com/u/0/uc?id=1st_guVFQSO3Qk5CCUnWA4qmCZa9i_EeY&export=download"
+      }
+    ],
+    "notes": "you're smart bun"
+  },
+  {
+    "id": 1,
+    "title": "“BURNING ABRAXAS IZ HER” MARY-MIX",
+    "artist": "DJ SWAT o5",
+    "date": "23/10/2024",
+    "length": "23min12sec",
+    "tracklist": [
+      {
+        "trackNo": 1,
+        "title": "LIL UGLY MANE - CUPP FULLA BEETLEJUICE",
+        "mixTitle": "BLEDSUCKLE TRANSYLVANIA MIX"
+      },
+      {
+        "trackNo": 2,
+        "title": "LIL UGLY MANE - BREEZE EM OUT",
+        "mixTitle": "MAGIK BUNNY KISSES MIX"
+      },
+      { "trackNo": 3, "title": "50 CENT - 24 Qs", "mixTitle": "BLUE TINT METAL MIX" },
+      { "trackNo": 4, "title": "TIMBALAND - THA WAY I ARE", "mixTitle": "MAPLE SWEET MIX" },
+      { "trackNo": 5, "title": "MARIAH CAREY - PHANTASY", "mixTitle": "CERVINE ANGEL HYMN" }
+    ],
+    "downloads": [
+      {
+        "title": ".mp3 (256kbps)",
+        "url": "https://drive.usercontent.google.com/u/0/uc?id=15Fubf1paBc1QAtqTCpHSTz8z5V2wCsL3&export=download"
+      },
+      {
+        "title": ".wav",
+        "url": "https://drive.usercontent.google.com/u/0/uc?id=1rvLgvrqhJR6EEs5DxzLIGWRLQeTsw_77&export=download"
+      }
+    ],
+    "notes": "i miss you"
+  }
+]

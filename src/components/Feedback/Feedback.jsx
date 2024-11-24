@@ -5,6 +5,12 @@ function Feedback() {
   const [text, setText] = useState("feedback");
   const doshit = () => {
     setText("disabled");
+    setTimeout(function () {
+      setText("for now..");
+      setTimeout(function () {
+        setText("feedback");
+      }, 500);
+    }, 1000);
   };
   return (
     <div className="feedback-wrapper">
