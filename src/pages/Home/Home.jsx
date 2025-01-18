@@ -7,12 +7,12 @@ function Home() {
         <div className="home-wrapper">
           <img
             className="home-img"
-            src="/gif/djJesusNestlesHisLilLamb.gif"
+            src="you.png"
           ></img>
           <div className="home-jesus">
             <h4 className="home-jesus-heading underline">PS2 JESUS SAYS</h4>
             <p className="home-jesus-quote">
-              wow our big numba 1 feedback supplier - wedgieluvr69 - eterynlly grateful for the rose scented feedback, prose matching surely only the prettiest girl in da world... §♲
+              youre so talented... i love you, i want you, sleep tight gypsophila so sweet.. §♲
             </p>
           </div>
         </div>
