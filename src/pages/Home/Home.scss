@@ -1,14 +1,15 @@
 .home {
-  &-container {
+  &-wrapper {
+    height: 100%;
     display: flex;
     flex-direction: column;
-    height: 100%;
   }
   &-img {
     box-sizing: border-box;
     padding-right: 1.5rem;
-    width: 100%;
-    min-height: 418.5px;
+    width: min-content;
+    height: 450px;
+    margin: auto;
   }
 
   &-jesus {
@@ -16,7 +17,7 @@
       transform: scaleX(1.5) scaleY(0.75);
       transform-origin: left;
     }
-    margin-top: 1rem;
+    margin-top: auto;
     color: whitesmoke;
   }
 }

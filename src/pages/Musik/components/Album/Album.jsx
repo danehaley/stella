@@ -39,7 +39,6 @@ function Album(props) {
         })}
       </ul>
       <div className="album-tracklist tracklist-container">
-        <p className="tracklist-title">--TRACKLIST--</p>
         <ul className="tracklist">
           {album.tracklist.map((track) => {
             return (

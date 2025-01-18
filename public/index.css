@@ -7,9 +7,10 @@
   min-width: 100vw;
 }
 
-# ---------------------------------------------- #
-# Reset shit
-# https://github.com/Lazzzer00/Best-CSS-Reset-2024
+#herblood{
+  overflow: hidden;
+}
+
 *,
 *::before,
 *::after {

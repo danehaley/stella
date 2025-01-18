@@ -8,10 +8,10 @@
   }
   &-wrapper {
     list-style: none;
-    width: auto;
+    width: 100%;
     display: flex;
+    align-items: center;
     flex-direction: row;
-    gap: 4rem;
     * {
       text-decoration: none;
     }
@@ -19,7 +19,17 @@
       margin-top: 1rem;
       display: flex;
     }
+    .navbar-item:first-of-type {
+      margin-right: auto;
+      margin-left: 1rem;
+    }
+
+    .navbar-item:last-of-type {
+      margin-left: auto;
+      margin-right: 1rem;
+    }
     .navbar-item-link {
+      width: max-content;
       color: whitesmoke !important;
       text-decoration: none !important;
       margin-top: auto;

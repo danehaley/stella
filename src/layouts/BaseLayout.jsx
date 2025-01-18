@@ -9,7 +9,7 @@ function BaseLayout(props) {
   return (
     <div className="layout" style={{ flexDirection: props.layoutFlexDirection }}>
       <div className="layout-wrapper">
-        <Outlet />
+        <Outlet className="container"/>
         <Navbar />
       </div>
       <footer>

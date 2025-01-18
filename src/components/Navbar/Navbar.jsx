@@ -3,7 +3,7 @@ import "./Navbar.scss";
 
 function Navbar() {
   return (
-    <nav className="navbar-container container">
+    <nav className="navbar-container">
       <ul className="navbar-wrapper">
         <li className="navbar-item">
           <Link className="navbar-item-link" to="/musik">

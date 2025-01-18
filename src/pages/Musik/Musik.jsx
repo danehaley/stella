@@ -4,7 +4,7 @@ import "./Musik.scss";
 function Musik() {
   return (
     <>
-      <div className="musik-container container">
+      <div className="content-container">
         <MusikNavigator />
       </div>
     </>

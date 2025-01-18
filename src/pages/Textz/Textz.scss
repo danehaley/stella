@@ -1,14 +1,7 @@
-.textz-container {
-  display: flex;
-  flex-direction: column;
-  overflow: visible;
-  height: 100%;
-  margin: auto 0;
-}
-
 .textz-img {
-  margin-top: auto;
-  min-height: 300px;
+  width: auto;
+  height: 350px;
+  margin: 0.5rem auto;
   z-index: -999;
 }
 .textz-wrapper {
@@ -91,4 +84,16 @@
   50% {
     opacity: 0.3;
   }
+}
+
+.textz{
+  &-pg-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.content-container{
+  overflow: visible !important;
 }

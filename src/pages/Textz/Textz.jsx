@@ -8,6 +8,7 @@ import adjustFontSize from "../../util/dynamicFontSize";
 function Textz() {
   const [phaseId, setPhaseId] = useState(0);
   const [phase, setPhase] = useState(data.phases[phaseId]);
+  const [imgCursor, setImgCursor] = useState({counter: 0, cursor: 0});
 
   useEffect(() => {
     setPhase(data.phases[phaseId]);
@@ -28,52 +29,81 @@ function Textz() {
     }
   }
 
+  function swapImg(direction){
+    if ((imgCursor.counter - (direction === "left" ? 1 : -1)) % 3 === 0){
+      setImgCursor({counter: 0, cursor: imgCursor.cursor+1});
+    } else {
+      setImgCursor({counter: imgCursor.counter+1, cursor: imgCursor.cursor});
+    }
+  }
+
   return (
     <>
-      <div className="textz-container">
-        <img className="textz-img" src="her.webp" />
-        <div className="textz-wrapper">
-          {[...Array(3)].map((x, i) => (
-            <>
-              <span className="textz-star" style={{ top: getRandomInt(), left: getRandomInt() }}>
-                ★
-              </span>
-              <span className="textz-star" style={{ top: getRandomInt(), right: getRandomInt() }}>
-                ★
-              </span>
-              <span
-                className="textz-star"
-                style={{ bottom: getRandomInt(), right: getRandomInt() }}>
-                ★
-              </span>
-              <span className="textz-star" style={{ bottom: getRandomInt(), left: getRandomInt() }}>
-                ★
-              </span>
-            </>
-          ))}
-          <div className="text-wrapper">
-            <p className="text" style={{ fontSize: adjustFontSize(phase.string, 0.4, 1, 0.0065) }}>
-              {phase.string}
-            </p>
-            <p className="text-timestamp">Posted on {phase.date}</p>
+      <div className="content-container">
+        <div className="textz-pg-wrapper">
+          <img className="textz-img" src={`textz/${imgCursor.cursor}.webp`} onError={()=>setImgCursor({counter: 0, cursor: 0})}/>
+          <div className="textz-wrapper">
+            {[...Array(3)].map((x, i) => (
+              <>
+                <span
+                  className="textz-star"
+                  style={{ top: getRandomInt(), left: getRandomInt() }}
+                >
+                  ★
+                </span>
+                <span
+                  className="textz-star"
+                  style={{ top: getRandomInt(), right: getRandomInt() }}
+                >
+                  ★
+                </span>
+                <span
+                  className="textz-star"
+                  style={{ bottom: getRandomInt(), right: getRandomInt() }}
+                >
+                  ★
+                </span>
+                <span
+                  className="textz-star"
+                  style={{ bottom: getRandomInt(), left: getRandomInt() }}
+                >
+                  ★
+                </span>
+              </>
+            ))}
+            <div className="text-wrapper">
+              <p
+                className="text"
+                style={{
+                  fontSize: adjustFontSize(phase.string, 0.4, 1, 0.0055),
+                }}
+              >
+                {phase.string}
+              </p>
+              <p className="text-timestamp">Posted on {phase.date}</p>
+            </div>
           </div>
-        </div>
-        <div className="text-navigator">
-          <button
-            className="text-navigate text-navigate--left"
-            onClick={() => {
-              navigate("left");
-            }}>
-            ↫
-          </button>
-          <p className="text-emblem">𖤓</p>
-          <button
-            className="text-navigate text-navigate--right"
-            onClick={() => {
-              navigate("right");
-            }}>
-            ↬
-          </button>
+          <div className="text-navigator">
+            <button
+              className="text-navigate text-navigate--left"
+              onClick={() => {
+                navigate("left");
+                swapImg();
+              }}
+            >
+              ↫
+            </button>
+            <p className="text-emblem">𖤓</p>
+            <button
+              className="text-navigate text-navigate--right"
+              onClick={() => {
+                navigate("right");
+                swapImg();
+              }}
+            >
+              ↬
+            </button>
+          </div>
         </div>
       </div>
     </>
