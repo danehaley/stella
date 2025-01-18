@@ -20,7 +20,7 @@ function Feedback() {
     sendEmail();
     closeModal();
 
-    setText("*sent**");
+    setText("-sent-");
     setTimeout(function () {
       setText("*feedback*");
     }, 5000);
