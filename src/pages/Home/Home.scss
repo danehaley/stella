@@ -7,9 +7,11 @@
   &-img {
     box-sizing: border-box;
     padding-right: 1.5rem;
-    width: min-content;
     height: 400px;
     margin: auto;
+    @media screen and (max-width: 400px){
+      height: 400px;
+    }
   }
 
   &-jesus {
