@@ -122,6 +122,9 @@ footer {
     &-version-hyperlink {
       color: #ff00ff;
       text-decoration: underline;
+      &:hover{
+        cursor: pointer;
+      }
     }
     &-text {
       font-size: 0.6rem;
