@@ -76,7 +76,7 @@ function Textz() {
                 className="text"
                 style={{
                   fontSize: adjustFontSize(phase.string, 0.4, 1, (window.innerWidth < 420 
-                    ? 0.0065 : 0.0049)),
+                    ? 0.0065 : 0.0058)),
                 }}
               >
                 {phase.string}
