@@ -5,15 +5,9 @@ function Home() {
     <>
       <div className="content-container">
         <div className="home-wrapper">
-          <img
-            className="home-img"
-            src="/gif/djJesusNestlesHisLilLamb.gif"
-          ></img>
           <div className="home-jesus">
-            <h4 className="home-jesus-heading underline">PS2 JESUS SAYS</h4>
             <p className="home-jesus-quote">
-              somethymes this love shit can be a lil messy, but true love always
-              workz out in da end... §♲
+            blessing to have known you, to have held a love from you, will never quite forget you. thank you. <br/> a doe, bun, and butterfly.
             </p>
           </div>
         </div>
